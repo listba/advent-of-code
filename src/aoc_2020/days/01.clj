@@ -12,20 +12,16 @@
 (defn p1 
   []
     (let [vals (parse "input.txt")]
-      (->> vals
-           (map (fn [fst] 
-                  (let [res (filter (fn [snd] (== 2020 (+ fst snd))) vals)]
-                    (map (fn [snd] (* fst snd)) res))))
-           (filter not-empty))))
+      (first (for [x vals
+                   y (drop 1 vals)
+                   :when (== 2020 (+ x y))] 
+               {:x x :y y :result (* x y)}))))
 
 (defn p2
   []
   (let [vals (parse "input.txt")]
-    (->> vals
-         (map (fn [fst]
-            (->> vals 
-                 (map (fn [snd]
-                    (let [res (filter (fn [trd] (== 2020 (+ fst snd trd))) vals)]
-                      (map (fn [trd] (* fst snd trd)) res))))
-                 (filter not-empty))))
-         (filter not-empty))))
+    (first (for [x vals
+           y (drop 1 vals)
+           z (drop 2 vals)
+           :when (== 2020 (+ x y z))]
+       {:x x :y y :z z :result (* x y z)}))))
