@@ -16,4 +16,4 @@
                  y vals
                  z vals
                  :when (== 2020 (+ x y z))]
-       {:x x :y y :z z :result (* x y z)}))))
+             {:x x :y y :z z :result (* x y z)}))))
