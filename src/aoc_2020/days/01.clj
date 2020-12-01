@@ -1,17 +1,9 @@
 (ns aoc-2020.days.01 
-  (:require [clojure.string :as str]
-            [aoc-2020.util :as util]))
-
-(defn parse [input]
-  (->> input
-    (str "resources/day-01/")
-    slurp
-    (re-seq #"[^\n]+")
-    (map read-string)))
+  (:require [aoc-2020.util :as util]))
 
 (defn p1 
   []
-    (let [vals (parse "input.txt")]
+    (let [vals (util/parse "day-01/input.txt")]
       (first (for [x vals
                    y (drop 1 vals)
                    :when (== 2020 (+ x y))] 
@@ -19,7 +11,7 @@
 
 (defn p2
   []
-  (let [vals (parse "input.txt")]
+  (let [vals (util/parse "day-01/input.txt")]
     (first (for [x vals
            y (drop 1 vals)
            z (drop 2 vals)
