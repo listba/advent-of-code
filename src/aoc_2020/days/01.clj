@@ -5,7 +5,7 @@
   []
     (let [vals (util/parse "day-01/input.txt")]
       (first (for [x vals
-                   y (drop 1 vals)
+                   y vals
                    :when (== 2020 (+ x y))] 
                {:x x :y y :result (* x y)}))))
 
@@ -13,7 +13,7 @@
   []
   (let [vals (util/parse "day-01/input.txt")]
     (first (for [x vals
-           y (drop 1 vals)
-           z (drop 2 vals)
-           :when (== 2020 (+ x y z))]
+                 y vals
+                 z vals
+                 :when (== 2020 (+ x y z))]
        {:x x :y y :z z :result (* x y z)}))))
