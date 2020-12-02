@@ -1,0 +1,221 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "aoc-2020-test",
+        "directory": "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020",
+        "workspaceDir": "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020",
+        "sources": [
+            "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/src/test/scala",
+            "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/src/test/scala-2.13",
+            "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/src/test/scala-2",
+            "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/src/test/java",
+            "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/target/scala-2.13/src_managed/test"
+        ],
+        "dependencies": [
+            "aoc-2020"
+        ],
+        "classpath": [
+            "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/.bloop/aoc-2020/scala-2.13/classes",
+            "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar",
+            "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.13/1.1.2/scala-parser-combinators_2.13-1.1.2.jar",
+            "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_2.13/2.2.2/fastparse_2.13-2.2.2.jar",
+            "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.13/0.1.7/sourcecode_2.13-0.1.7.jar",
+            "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/geny_2.13/0.4.2/geny_2.13-0.4.2.jar"
+        ],
+        "out": "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/.bloop/aoc-2020",
+        "classesDir": "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/.bloop/aoc-2020/scala-2.13/test-classes",
+        "resources": [
+            "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/src/test/resources",
+            "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/target/scala-2.13/resource_managed/test"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.13.3",
+            "options": [
+                "-Xplugin:/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/olegpy/better-monadic-for_2.13/0.3.1/better-monadic-for_2.13-0.3.1.jar"
+            ],
+            "jars": [
+                "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.3/scala-compiler-2.13.3.jar",
+                "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar",
+                "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.3/scala-reflect-2.13.3.jar",
+                "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.15.0/jline-3.15.0.jar",
+                "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar"
+            ],
+            "analysis": "/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/target/streams/test/bloopAnalysisOut/_global/streams/inc_compile_2.13.zip",
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/usr/local/Cellar/openjdk@11/11.0.9/libexec/openjdk.jdk/Contents/Home",
+                "options": [
+                    "-Duser.dir=/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020"
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.3",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-parser-combinators_2.13",
+                    "version": "1.1.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-parser-combinators_2.13",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.13/1.1.2/scala-parser-combinators_2.13-1.1.2.jar"
+                        },
+                        {
+                            "name": "scala-parser-combinators_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.13/1.1.2/scala-parser-combinators_2.13-1.1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.lihaoyi",
+                    "name": "fastparse_2.13",
+                    "version": "2.2.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "fastparse_2.13",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_2.13/2.2.2/fastparse_2.13-2.2.2.jar"
+                        },
+                        {
+                            "name": "fastparse_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/fastparse_2.13/2.2.2/fastparse_2.13-2.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.lihaoyi",
+                    "name": "sourcecode_2.13",
+                    "version": "0.1.7",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sourcecode_2.13",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.13/0.1.7/sourcecode_2.13-0.1.7.jar"
+                        },
+                        {
+                            "name": "sourcecode_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.13/0.1.7/sourcecode_2.13-0.1.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.lihaoyi",
+                    "name": "geny_2.13",
+                    "version": "0.4.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "geny_2.13",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/geny_2.13/0.4.2/geny_2.13-0.4.2.jar"
+                        },
+                        {
+                            "name": "geny_2.13",
+                            "classifier": "sources",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/geny_2.13/0.4.2/geny_2.13-0.4.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.13.3",
+                    "configurations": "optional",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/Users/benlist/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.3/scala-library-2.13.3-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "test"
+        ]
+    }
+}

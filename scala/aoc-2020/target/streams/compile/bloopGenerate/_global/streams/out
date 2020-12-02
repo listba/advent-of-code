@@ -1,0 +1,4 @@
+[debug] [aoc-2020] Classpath dependencies List()
+[debug] [aoc-2020] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'aoc-2020' to '/Users/benlist/Documents/src/sandbox/advent-of-code-2020/scala/aoc-2020/.bloop/aoc-2020.json'
+[success] Generated .bloop/aoc-2020.json
