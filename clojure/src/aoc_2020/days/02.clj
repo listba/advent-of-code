@@ -25,7 +25,7 @@
                  (let [fst  (get p (- (read-string _1) 1))
                        snd  (get p (- (read-string _2) 1))
                        c    (first (char-array cStr))]
-                   (or 
-                    (and (= fst c) (not= snd c)) 
-                    (and (not= fst c) (= snd c))))))
+                   (and 
+                    (or (= fst c) (= snd c)) 
+                    (not= fst snd)))))
        count))

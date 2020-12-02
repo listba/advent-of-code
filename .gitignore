@@ -46,7 +46,10 @@ Temporary Items
 
 ### Scala ###
 *.log
-
+**.metals
+**metals.sbt
+project/project
+**.bloop
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/tasks.json
