@@ -1,16 +1,10 @@
-(ns aoc-2020.days.02
-  (:require [aoc-2020.util :as util]))
-
-; (re-find #"(\S+):(\d+)" line)
-; 8-11 x: mdpvkqsxvzxgtvb
+(ns aoc-2020.days.02)
 
 (defn parse [input]
   (->> input
        (str "../resources/")
        slurp
-       (re-seq #"[^\n]+")
-       ; parse out to min max char password
-       (map #(re-find #"(\d+)-(\d+) ([a-zA-Z]): ([a-zA-Z]+)" %))))
+       (re-seq #"(\d+)-(\d+) ([a-zA-Z]): ([a-zA-Z]+)")))
 
 (defn p1
   []
