@@ -5,7 +5,7 @@ pom.xml.asc
 *.class
 /lib/
 /classes/
-/target/
+target/
 /checkouts/
 .lein-deps-sum
 .lein-repl-history
@@ -13,6 +13,7 @@ pom.xml.asc
 .lein-failures
 .nrepl-port
 .cpcache/
+.calva/
 
 ### macOS ###
 # General

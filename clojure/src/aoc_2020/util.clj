@@ -1,6 +1,6 @@
 (ns aoc-2020.util)
 
-(defn parse [input]
+(defn parse-nums [input]
   (->> input
        (str "../resources/")
        slurp

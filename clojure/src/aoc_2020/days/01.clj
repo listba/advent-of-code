@@ -3,7 +3,7 @@
 
 (defn p1 
   []
-    (let [vals (util/parse "day-01/input.txt")]
+    (let [vals (util/parse-nums "day-01/input.txt")]
       (first (for [x vals
                    y vals
                    :when (== 2020 (+ x y))] 
@@ -11,7 +11,7 @@
 
 (defn p2
   []
-  (let [vals (util/parse "day-01/input.txt")]
+  (let [vals (util/parse-nums "day-01/input.txt")]
     (first (for [x vals
                  y vals
                  z vals
