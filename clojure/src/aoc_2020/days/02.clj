@@ -10,11 +10,11 @@
   []
   (->> "day-02/input.txt"
        parse
-       (filter (fn [[_ minStr maxStr c p]] 
-              (let [pMin    (read-string minStr)
-                    pMax    (read-string maxStr)
+       (filter (fn [[_ min-str max-str c p]] 
+              (let [_min    (read-string min-str)
+                    _max    (read-string max-str)
                     cCount  (count (re-seq (re-pattern c) p))]
-                (<= pMin cCount pMax))))
+                (<= _min cCount _max))))
       count))
 
 (defn p2
