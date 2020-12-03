@@ -1,6 +1,7 @@
 (ns aoc-2020.core
   (:require 
-    [aoc-2020.days.01] [aoc-2020.days.02] )
+    [aoc-2020.days.01] [aoc-2020.days.02] 
+    [aoc-2020.days.03])
   (:gen-class))
 
 (defn run 
@@ -12,7 +13,8 @@
 (defn -main
   ([] (time (do 
         (->> [["01" 1] ["01" 2]
-              ["02" 1] ["02" 2]]
+              ["02" 1] ["02" 2]
+              ["03" 1] ["03" 2]]
             (map #(apply -main %))
             (seq)) (println "-------------- TOTAL --------------"))))
   ([day part & args] (run day part args)))

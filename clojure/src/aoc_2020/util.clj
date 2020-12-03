@@ -1,10 +1,14 @@
 (ns aoc-2020.util)
 
-(defn parse-nums [input]
+(defn parse [input]
   (->> input
        (str "../resources/")
        slurp
-       (re-seq #"[^\n]+")
+       (re-seq #"[^\n]+")))
+
+(defn parse-nums [input]
+  (->> input
+       parse
        (map read-string)))
 
 (defn permutations [colls]
