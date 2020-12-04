@@ -28,7 +28,6 @@ object day04 extends day {
     def hgt[_:P] = P(key("hgt") ~~ (DIGITS ~~ MMUNIT).filter{ 
         case (i,CM) => btwn(i,150,193)
         case (i,IN) => btwn(i,59,76)
-        case _ => false
     })
     def hcl[_:P] = P(key("hcl") ~~ HEXCLR)
     def ecl[_:P] = P(key("ecl") ~~ ("amb"|"blu"|"brn"|"gry"|"grn"|"hzl"|"oth").!)
