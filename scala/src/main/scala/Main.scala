@@ -1,5 +1,6 @@
 package aoc2020
 
+import solutions._
 
 trait day {
     def p1 : Unit
@@ -7,6 +8,5 @@ trait day {
 }
 
 object Main extends App {
-  solutions.day02.p1
-  solutions.day02.p2
+  List(day02,day04).map(d => { d.p1; d.p2 })
 }

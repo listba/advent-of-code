@@ -51,7 +51,7 @@ Temporary Items
 project/project
 **.bloop
 ### VisualStudioCode ###
-.vscode/*
+**/.vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
 *.code-workspace
