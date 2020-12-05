@@ -10,7 +10,8 @@ import fastparse.Parsed.Success
 
 
 object day04 extends day { 
-
+    val day = 4
+    
     trait MMUnit
     case object CM extends MMUnit
     case object IN extends MMUnit
@@ -40,7 +41,8 @@ object day04 extends day {
 
         val input = Source.fromFile("../resources/day-04/input.txt").getLines.mkString("\n").split("\n\n")
         val valid = input.map(parse(_,pp(_))).collect{ case Success(pp, index) if requiredFields(pp) => pp }
-        println(s"Day04 P1: Found ${valid.length} passports")
+
+        s"Day04 P1: Found ${valid.length} passports"
     }
 
     def p2 = {
@@ -49,6 +51,7 @@ object day04 extends day {
 
         val input = Source.fromFile("../resources/day-04/input.txt").getLines.mkString("\n").split("\n\n")
         val valid = input.map(parse(_,pp(_))).collect{ case Success(pp, index) if requiredFields(pp) => pp }
-        println(s"Day04 P2: Found ${valid.length} passports")
+
+        s"Found ${valid.length} passports"
     }
 }
