@@ -8,14 +8,12 @@
        (#(str/split % #"[\n]{2}"))
        (map #(->> (str/split % #"[\n]") (map set)))))
 
-(defn p1
-  []
+(defn p1 []
   (->> (parse "day-06/input.txt")
        (map (fn [group] (->> (reduce set/union group) count)))
        (reduce +)))
 
-(defn p2
-  []
+(defn p2 []
   (->> (parse "day-06/input.txt")
        (map (fn [group] (->> (reduce set/intersection group) count)))
        (reduce +)))
