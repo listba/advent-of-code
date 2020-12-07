@@ -5,12 +5,12 @@
 (defn parse [input]
   (->> (str "../resources/" input)
        slurp
-       (#(str/split % #"[\n]{2}"))
-       (map #(->> (str/split % #"[\n]") (map set)))))
+       (#(str/split % #"[\n]{2}"))                       ;; groups are seperated by \n\n (blank line)
+       (map #(->> (str/split % #"[\n]") (map set)))))    ;; people within a group are seperated by \n
 
 (defn p1 []
   (->> (parse "day-06/input.txt")
-       (map (fn [group] (->> (reduce set/union group) count)))
+       (map (fn [group] (->> (reduce set/union group) count)))   ;; count the number of uniquie answers in each group
        (reduce +)))
 
 (defn p2 []

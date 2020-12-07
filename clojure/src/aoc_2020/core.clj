@@ -3,7 +3,8 @@
    [clojure.term.colors :as colors]
    [aoc-2020.days.01] [aoc-2020.days.02]
    [aoc-2020.days.03] [aoc-2020.days.04]
-   [aoc-2020.days.05] [aoc-2020.days.06])
+   [aoc-2020.days.05] [aoc-2020.days.06]
+   [aoc-2020.days.07])
   (:gen-class))
 
 
@@ -21,7 +22,8 @@
               ["03" 1] ["03" 2]
               ["04" 1] ["04" 2]
               ["05" 1] ["05" 2]
-              ["06" 1] ["06" 2]]
+              ["06" 1] ["06" 2]
+              ["07" 1] ["07" 2]]
             (map #(apply -main %))
             (seq)) (println "-------------- TOTAL --------------"))))
   ([day part & args] (run day part args)))
