@@ -1,13 +1,11 @@
 (ns aoc-2020.days.08
-  (:require [clojure.string :as str]
-            [clojure.pprint :as pprint]))
+  (:require [clojure.pprint :as pprint]))
 
 (defn parse [input]
   (->> (str "../resources/" input)
        slurp
        (re-seq #"(\w{3}) ([+|-]\d+)")
-       (map (fn [[_ op v]] [op (read-string v)]))
-       (into [])))
+       (mapv (fn [[_ op v]] [(keyword op) (read-string v)]))))
 
 (defn update-state 
   "updates index, accumulation and history in state"
@@ -28,9 +26,9 @@
        (cond
          (some? cHist) (assoc state :exit-code 1)  ;; return with error if we have already executed this instruction  
          (nil? op)     (assoc state :exit-code 0)  ;; return with success if no further instructions
-         (= "nop" op) (recur codes (update-state (inc idx) acc state))              ;; NoOp -> inc instruction pointer by 1
-         (= "jmp" op) (recur codes (update-state (+ idx v) acc state))              ;; Jump -> add value to instruction pointer
-         (= "acc" op) (recur codes (update-state (inc idx) (+ acc v) state)))))))   ;; Accumulate -> Add value to global acc and inc instruction pointer by 1  
+         (= :nop op) (recur codes (update-state (inc idx) acc state))              ;; NoOp -> inc instruction pointer by 1
+         (= :jmp op) (recur codes (update-state (+ idx v) acc state))              ;; Jump -> add value to instruction pointer
+         (= :acc op) (recur codes (update-state (inc idx) (+ acc v) state)))))))   ;; Accumulate -> Add value to global acc and inc instruction pointer by 1  
 
 (defn pp 
   "pretty prints instruction set with accumulation history"
@@ -55,8 +53,8 @@
   "swaps jmp<->nop instructions 1 at a time"
   [codes]
   (keep-indexed (fn [idx [op v]]
-                  (cond (= "jmp" op) [(assoc codes idx ["nop" v]) (str "idx: " op " " v " -> nop " v)]
-                        (= "nop" op) [(assoc codes idx ["jmp" v]) (str "idx: " op " " v " -> jmp " v)]
+                  (cond (= :jmp op) [(assoc codes idx [:nop v]) (str "idx: :jmp " v " -> :nop " v)]
+                        (= :nop op) [(assoc codes idx [:jmp v]) (str "idx: :nop " v " -> :jmp " v)]
                         :else nil))
                 codes))
 

@@ -8,6 +8,12 @@ trait day {
     def p2 : String
 }
 
+case class Person(name:String, age: Int, ssn: Option[String] = None)
+
+object Person_ {
+  def unapply(s:Person) = Some((s.name,s.age))
+}
+
 object Main extends App {
   List(day02,day04,day05).map(d => { 
     println(
@@ -18,4 +24,8 @@ object Main extends App {
          |Result: ${d.p2}
          |""".stripMargin )
   })
+
+  Person("fred", 22) match {
+    case Person_(name,age) => println(s"Matched $name [$age]")
+  }
 }
