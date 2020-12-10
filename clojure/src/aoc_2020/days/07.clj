@@ -10,13 +10,6 @@
                 [k (keep (comp next (partial re-find #"([\d]+) ([\w]+ [\w]+)")) v)])))
        (into {})))
 
-
-
-(defn bag-search [cur bag rules] 
-  (if (= bag cur) true 
-    (->> (get rules cur)
-         (reduce (fn [r [_ next]] (or r (bag-search next bag rules))) false))))
-
 (def bag-search 
   (memoize (fn [cur bag rules]
              (if (= bag cur) true

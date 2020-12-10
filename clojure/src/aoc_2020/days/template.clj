@@ -1,14 +1,16 @@
 (comment
   (ns aoc-2020.days.00)
 
-(defn parse [input]
-  (->> (str "../resources/" input)
+(defn parse [file]
+  (->> (str "../resources/day-00/" file ".txt")
         slurp))
 
-(defn p1 []
-  (parse "day-00/input.txt"))
+(defn p1 
+  ([] (p1 "input"))
+  ([file] (parse file)))
 
-(defn p2 []
-  (parse "day-00/input.txt"))
+(defn p2
+  ([] (p2 "input"))
+  ([file] (parse file)))
   
 )
