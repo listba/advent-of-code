@@ -6,7 +6,7 @@
    [aoc-2020.days.05] [aoc-2020.days.06]
    [aoc-2020.days.07] [aoc-2020.days.08]
    [aoc-2020.days.09] [aoc-2020.days.10]
-  [aoc-2020.days.11] )
+   [aoc-2020.days.11] [aoc-2020.days.12])
   (:gen-class))
 
 
@@ -29,7 +29,8 @@
               ["08" 1] ["08" 2]
               ["09" 1] ["09" 2]
               ["10" 1] ["10" 2]
-              ["11" 1] ["11" 2]]
+              ["11" 1] ["11" 2]
+              ["12" 1] ["12" 2]]
             (map #(apply -main %))
             (seq)) (println "-------------- TOTAL --------------"))))
   ([day part & args] (run day part args)))
