@@ -8,10 +8,6 @@
                  spoken      (reduce (fn [m [n i]] (assoc m n  (list (inc i)))) {} nums)
                  last-spoken (first (last nums))
                  rng       (range (inc (count nums)) (inc turns))
-                 _ (println "nums" nums)
-                 _ (println "spoken" spoken)
-                 _ (println "last" last-spoken)
-                 _ (println "next-turn" (first rng))
                  result (reduce (fn [[spoken last] turn] 
                                   (let [[x y] (get spoken last)]
                                     (if (nil? y) [(update spoken 0 #(conj % turn)) 0]
