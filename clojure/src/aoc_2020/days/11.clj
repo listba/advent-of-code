@@ -5,7 +5,7 @@
        slurp
        (re-seq #"[^\n]+")
        (mapv (fn [row] (->> (re-seq #"." row)   
-                            (mapv (fn [seat] (if (= "L" seat) [:empty :occupied] [:floor :floor]) ))))) ; lets cheat and run the firts turn while parsing since we know the initial state is all empty
+                            (mapv (fn [seat] (if (= "L" seat) [:empty :occupied] [:floor :floor]) ))))) ; lets cheat and run the first turn while parsing since we know the initial state is all empty
        ((fn [seats] {:turn 1 :done false :x (count (first seats)) :y (count seats)  :seats seats}))))
 
 (defn get-neighbors-p1 [sx sy {:keys [seats turn]}]
@@ -21,7 +21,7 @@
   (-> neighbors (frequencies) (get :occupied 0) ((fn [r] (if (>= r 4) [:empty false] [:occupied true])))))
 
 
-(defn cycle [{:keys [seats x y turn] :as state} empty-fn occ-fn neigh-fn]
+(defn generation [{:keys [seats x y turn] :as state} empty-fn occ-fn neigh-fn]
   (->> (for [sx (range 0 x) sy (range 0 y)]
          (let [ seat (get-in seats [sy sx turn])
                [next same] (case seat
@@ -48,7 +48,7 @@
                 result (loop [{:keys [done] :as state} state]
                          (if done 
                            (count-state state) 
-                           (recur (cycle state check-empty-p1 check-occupied-p1 get-neighbors-p1))))] result)))
+                           (recur (generation state check-empty-p1 check-occupied-p1 get-neighbors-p1))))] result)))
 
 
 (defn get-first [sx sy x y {:keys [seats turn]}] 
@@ -80,4 +80,4 @@
                 result (loop [{:keys [done] :as state} state]
                          (if done
                            (count-state state)
-                           (recur (cycle state check-empty-p2 check-occupied-p2 get-neighbors-p2))))] result)))
+                           (recur (generation state check-empty-p2 check-occupied-p2 get-neighbors-p2))))] result)))
