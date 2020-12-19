@@ -15,7 +15,7 @@ object Person_ {
 }
 
 object Main extends App {
-  List(day02,day04,day05).map(d => { 
+  List(day02,day04,day05,day18).map(d => { 
     println(
       s"""------------ Day ${d.day} Part 1 ------------ 
          |Result: ${d.p1}
