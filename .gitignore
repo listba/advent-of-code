@@ -14,7 +14,8 @@ target/
 .nrepl-port
 .cpcache/
 .calva/
-
+.clj-kondo/
+.lsp/
 ### macOS ###
 # General
 .DS_Store
