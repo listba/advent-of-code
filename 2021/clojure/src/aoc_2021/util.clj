@@ -1,14 +1,12 @@
 (ns aoc-2021.util)
 
-(defn parse [input]
-  (->> input
-       (str "../resources/")
+(defn parse [day file]
+  (->> (str "../resources/day-" day "/" file ".txt")
        slurp
        (re-seq #"[^\n]+")))
 
-(defn parse-nums [input]
-  (->> input
-       parse
+(defn parse-nums [day file]
+  (->> (parse day file)
        (map read-string)))
 
 (defn permutations [colls]
