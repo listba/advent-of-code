@@ -1,7 +1,7 @@
 (ns aoc-2021.core
   (:require
    [clojure.term.colors :as colors]
-   [aoc-2021.days.01])
+   [aoc-2021.days.01] [aoc-2021.days.02])
   (:gen-class))
 
 
@@ -15,7 +15,7 @@
 (defn -main
   ([] (time (do 
         (->> [["01" 1] ["01" 2]
-              ;; ["02" 1] ["02" 2]
+              ["02" 1] ["02" 2]
               ;; ["03" 1] ["03" 2]
               ;; ["04" 1] ["04" 2]
               ;; ["05" 1] ["05" 2]
