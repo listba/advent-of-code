@@ -9,7 +9,7 @@ trait day {
 }
 
 @main def hello: Unit = 
-  List(day01).map(d => { 
+  List(day01,day02).map(d => {
     println(
       s"""------------ Day ${d.day} Part 1 ------------ 
          |Result: ${d.p1}
