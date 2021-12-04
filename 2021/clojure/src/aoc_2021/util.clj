@@ -1,5 +1,7 @@
 (ns aoc-2021.util)
 
+(defn not-empty? [xs] (not (empty? xs)))
+
 (defn parse [day file]
   (->> (str "../resources/day-" day "/" file ".txt")
        slurp

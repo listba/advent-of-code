@@ -2,7 +2,7 @@
   (:require
    [clojure.term.colors :as colors]
    [aoc-2021.days.01] [aoc-2021.days.02]
-   [aoc-2021.days.03])
+   [aoc-2021.days.03] [aoc-2021.days.04])
   (:gen-class))
 
 
@@ -18,7 +18,7 @@
         (->> [["01" 1] ["01" 2]
               ["02" 1] ["02" 2]
               ["03" 1] ["03" 2]
-              ;; ["04" 1] ["04" 2]
+              ["04" 1] ["04" 2]
               ;; ["05" 1] ["05" 2]
               ;; ["06" 1] ["06" 2]
               ;; ["07" 1] ["07" 2]
@@ -37,4 +37,4 @@
             (map #(apply -main %))
             (seq)) (println "-------------- TOTAL --------------"))))
   ([day part & args] (run day part args))
-  ([day] (do (run day 1 nil) (run day 2 nil))))
+  ([day] ((run day 1 nil) (run day 2 nil))))
