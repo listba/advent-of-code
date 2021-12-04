@@ -37,4 +37,4 @@
             (map #(apply -main %))
             (seq)) (println "-------------- TOTAL --------------"))))
   ([day part & args] (run day part args))
-  ([day] ((run day 1 nil) (run day 2 nil))))
+  ([day] (do (run day 1 nil) (run day 2 nil))))
