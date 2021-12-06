@@ -19,10 +19,12 @@
   (sort-by key #(> %1 %2))
   (reduce simulate-fish {})))
 
+(defn run-cycles [file cycles] (->> (parse-fishes file) (iterate* fish-cycle) (take (inc cycles)) last vals (apply +)))
+
 (defn p1 
   ([] (p1 "input"))
-  ([file] (->> (parse-fishes file) (iterate* fish-cycle) (take 81) last vals (apply +))))
+  ([file] (run-cycles file 80)))
   
 (defn p2 
   ([] (p2 "input"))
-  ([file] (->> (parse-fishes file) (iterate* fish-cycle) (take 257) last vals (apply +))))
+  ([file] (run-cycles file 256)))
