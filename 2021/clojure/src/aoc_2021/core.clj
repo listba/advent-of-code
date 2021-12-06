@@ -3,7 +3,17 @@
    [clojure.term.colors :as colors]
    [aoc-2021.days.01] [aoc-2021.days.02]
    [aoc-2021.days.03] [aoc-2021.days.04]
-   [aoc-2021.days.05] [aoc-2021.days.06])
+   [aoc-2021.days.05] [aoc-2021.days.06]
+   [aoc-2021.days.07] [aoc-2021.days.08]
+   [aoc-2021.days.09] [aoc-2021.days.10]
+   [aoc-2021.days.11] [aoc-2021.days.12]
+   [aoc-2021.days.13] [aoc-2021.days.14]
+   [aoc-2021.days.15] [aoc-2021.days.16]
+   [aoc-2021.days.17] [aoc-2021.days.18]
+   [aoc-2021.days.19] [aoc-2021.days.20]
+   [aoc-2021.days.21] [aoc-2021.days.22]
+   [aoc-2021.days.23] [aoc-2021.days.24]
+   [aoc-2021.days.25])
   (:gen-class))
 
 
@@ -34,6 +44,14 @@
               ;; ["15" 1] ["15" 2]
               ;; ["16" 1] ["16" 2]
               ;; ["17" 1] ["17" 2]
+              ;; ["18" 1] ["18" 2]
+              ;; ["19" 1] ["19" 2]
+              ;; ["20" 1] ["20" 2]
+              ;; ["21" 1] ["21" 2]
+              ;; ["22" 1] ["22" 2]
+              ;; ["23" 1] ["23" 2]
+              ;; ["24" 1] ["24" 2]
+              ;; ["25" 1] ["25" 2]
               ]
             (map #(apply -main %))
             (seq)) (println "-------------- TOTAL --------------"))))

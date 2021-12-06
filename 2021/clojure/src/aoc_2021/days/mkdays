@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for i in 1..25}; 
+do
+    if [ "${i}" -lt "10" ]; then 
+        i="0${i}"; 
+    fi
+    echo "making file for $i"
+    file="./${i}.clj"
+    
+    sudo sed "s/days.00/days-$i/g" ./template.txt > $file
+done
