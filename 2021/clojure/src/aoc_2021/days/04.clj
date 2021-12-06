@@ -24,10 +24,8 @@
         [picks & rest] (str/split input #"\n\n")
         picks (->> picks (re-seq #"\d+") (map read-string))
         boards (mapv #(->> % (re-seq #"\d+") (map read-string) (partition 5) (map vec)) rest)
-        tboards (map transpose boards)
-        boards (mapv vector boards tboards)]
-    [picks boards]))
-
+        tboards (map transpose boards)]
+    [picks (mapv vector boards tboards)]))
 
 (defn p1 
   ([] (p1 "input"))
