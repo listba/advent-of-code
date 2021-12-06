@@ -2,6 +2,10 @@
 
 (defn not-empty? [xs] (not (empty? xs)))
 
+(defn p [x] (println x) x) ; little helper to debug in threading macros
+
+(defn transpose [m] (apply mapv vector m))
+
 (defn parse [day file]
   (->> (str "../resources/day-" day "/" file ".txt")
        slurp
