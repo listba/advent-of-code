@@ -3,7 +3,7 @@
 
 (defn parse [file]
   (->> file
-       (util/parse "05")
+       (util/parse-lines "05")
        (mapv #(->> % (re-seq #"\d+") (map read-string) (partition 2)))))
 
 (defn range* [a b] (if (< a b) (range a (inc b)) (reverse (range b (inc a)))))

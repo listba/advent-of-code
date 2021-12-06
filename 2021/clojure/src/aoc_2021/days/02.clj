@@ -4,7 +4,7 @@
 
 (defn parse [file]
   (->> file
-       (util/parse "02")
+       (util/parse-lines "02")
        (map (fn [line]
               (let [[[_ x y]] (re-seq #"([a-zA-Z]+) (\d+)" line)]
                 [x (read-string y)])))))

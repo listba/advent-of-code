@@ -17,7 +17,7 @@
          (* (first picks)))))
 
 (defn parse [file]
-  (let [input  (slurp (str "../resources/day-04/" file ".txt"))
+  (let [input  (util/read-file "04" file)
         [picks & rest] (str/split input #"\n\n")
         picks (->> picks (re-seq #"\d+") (map read-string))
         boards (mapv #(->> % (re-seq #"\d+") (map read-string) (partition 5) (map vec)) rest)

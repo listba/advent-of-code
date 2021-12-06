@@ -6,7 +6,7 @@
 
 (defn p1 
   ([] (p1 "input"))
-  ([file] (let [bits (util/parse "03" file)] 
+  ([file] (let [bits (util/parse-lines "03" file)] 
                 (->> (count (first bits))
                      range
                      (map #(idx-freq bits %))
@@ -22,7 +22,7 @@
 
 (defn p2 
   ([] (p2 "input"))
-  ([file] (let [bits (util/parse "03" file)]
+  ([file] (let [bits (util/parse-lines "03" file)]
             (->> (count (first bits))
                  range
                  (reduce (fn [[oxy-bits co2-bits] col]

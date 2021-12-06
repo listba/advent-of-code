@@ -6,13 +6,16 @@
 
 (defn transpose [m] (apply mapv vector m))
 
-(defn parse [day file]
-  (->> (str "../resources/day-" day "/" file ".txt")
-       slurp
+
+(defn read-file [day file]
+  (slurp (str "../resources/day-" day "/" file ".txt")))
+
+(defn parse-lines [day file]
+  (->> (read-file day file)
        (re-seq #"[^\n]+")))
 
 (defn parse-nums [day file]
-  (->> (parse day file)
+  (->> (parse-lines day file)
        (map read-string)))
 
 (defn permutations [colls]
