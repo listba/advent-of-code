@@ -36,10 +36,10 @@ Givens:
 * 0 6 9 are all 6 digits
 
 * 9 is the only 6 length number that is a superset of 4
-* 6 can be found by identifying the only 6 digit seq missing one of the characters from 1
+* 6 is the only 6 length number that is not a super set of 1
 * 0 is the only remaining 6 segment
 
-* 3 can be found by identifying the only 5 digit seq with both characters from 1
+* 3 is the only 5 length superset of 1
 * 5 is a subset of 6
 * 2 is the only 5 len remaining
 
