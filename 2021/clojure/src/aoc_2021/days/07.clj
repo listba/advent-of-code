@@ -2,7 +2,7 @@
   (:require [aoc-2021.util :as util]))
 
 (defn median [xs] (let [mid (quot (count xs) 2)]
-(-> xs sort (nth mid))))
+                    (-> xs sort (nth mid))))
 
 (defn mean [xs] (/ (reduce + xs) (count xs)))
 
