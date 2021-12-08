@@ -2,8 +2,6 @@
   (:require [aoc-2021.util :as util]
             [clojure.set]))
 
-(def sample "acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf")
-
 (defn parse [file]
   (->> file
        (util/parse-lines "08")
