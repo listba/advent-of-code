@@ -14,10 +14,18 @@
   (->> (read-file day file)
        (re-seq #"[^\n]+")))
 
-(defn parse-nums [day file]
+(defn parse-nums [day file] 
+(->> (read-file day file)
+     (re-seq #"\d+")
+     (map read-string)))
+
+(defn parse-numlines [day file]
   (->> (parse-lines day file)
        (map read-string)))
 
+(defn abs [x]
+    (if (> x 0) x (* -1 x)))
+    
 (defn permutations [colls]
   (if (= 1 (count colls))
     (list colls)
