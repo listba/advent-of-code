@@ -25,9 +25,9 @@
         {[d5] true _5s false} (group-by (partial clojure.set/superset? d6) _5s)
         {[d3] true [d2] false} (group-by (partial clojure.set/subset? d1) _5s)]
         {d1 1 d2 2 d3 3 d4 4 d5 5 d6 6 d7 7 d8 8 d9 9 d0 0}))
-        
+
 (defn match-output [digit-map output]
-(->> output (map set) (map (partial get digit-map)) (apply str) Long/parseLong))
+  (->> output (map set) (map (partial get digit-map)) (apply str) Long/parseLong))
 
 (defn p2
   ([] (p2 "input"))
