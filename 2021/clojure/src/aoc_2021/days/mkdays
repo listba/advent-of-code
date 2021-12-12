@@ -8,5 +8,5 @@ do
     echo "making file for $i"
     file="./${i}.clj"
     
-    sudo sed "s/days.00/days-$i/g" ./template.txt > $file
+    sudo sed "s/days.00/days.$i/g" ./template.txt > $file
 done
