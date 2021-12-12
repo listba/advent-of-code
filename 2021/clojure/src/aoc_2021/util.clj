@@ -41,3 +41,18 @@
     (for [head colls
           tail (permutations (disj (set colls) head))]
       (cons head tail))))
+
+(defn fetch-neighbors [diags? [y x] chart]
+  (let [N  [(dec y) x]
+        NE [(dec y) (inc x)]
+        E  [y (inc x)]
+        SE [(inc y) (inc x)]
+        S  [(inc y) x]
+        SW [(inc y) (dec x)]
+        W  [y (dec x)]
+        NW [(dec y) (dec x)]]
+    (->> (if diags? [N NE E SE S SW W NW] [N E S W])
+         (keep (fn [[ny nx]]
+                 (some->> [ny nx]
+                          (get-in chart)
+                          ((fn [x] [x [ny nx]]))))))))

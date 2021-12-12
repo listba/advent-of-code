@@ -2,35 +2,17 @@
   (:require [aoc-2021.util :as util]))
 
 ; I think this could be moved into utils
-(defn fetch-neighbors [diags? [y x] graph]
-  (let [N  [(dec y) x]
-        NE [(dec y) (inc x)]
-        E  [y (inc x)]
-        SE [(inc y) (inc x)]
-        S  [(inc y) x]
-        SW [(inc y) (dec x)]
-        W  [y (dec x)]
-        NW [(dec y) (dec x)]]
-    (->> (if diags? [N NE E SE S SW W NW] [N E S W])
-        ;;  (util/ps (str "Neighbors for " y " " x))
-        ;;  (util/p)
-         (keep (fn [[ny nx]]
-                 (some->> [ny nx]
-                          (get-in graph)
-                          ((fn [x] [x [ny nx]]))))))))
 
-(defn debug-flash [octopus neighbors] (println (str "Flashing " octopus " neighbors " (mapv identity neighbors))) neighbors)
 
 (defn flash-octopus [octopi octopus]
   (->> octopi
-       (fetch-neighbors true octopus)
-       ;;  (debug-flash octopus)
+       (util/fetch-neighbors true octopus)
        (reduce (fn [octopi [v n]] (if (= 0 v) octopi (update-in octopi n inc))) octopi)
        (util/assoc-in>> 0 octopus)))
 
-(defn coord-map [graph] (for [y (range (count graph))
-                               x (range (count (first graph)))]
-                           [(get-in graph [y x]) [y x]]))
+(defn coord-map [chart] (for [y (range (count chart))
+                               x (range (count (first chart)))]
+                           [(get-in chart [y x]) [y x]]))
 
 (defn flash-cycle [octopi] 
   (let [pending-flash (->> octopi coord-map (filter (fn [[v _]] (> v 9))))]
