@@ -23,7 +23,7 @@
 
 (defn make-paper [dots] (let [mx (->> dots (map first) (reduce max))
                               my (->> dots (map second) (reduce max))
-                              empty-paper  (make-grid (inc mx) (inc my) ".")]
+                              empty-paper  (make-grid (inc mx) (inc my) " ")]
                           (reduce (fn [paper [x y]] (assoc-in paper [y x] "#")) empty-paper dots)))
 (defn p2 
   ([] (p2 "input"))
