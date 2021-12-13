@@ -10,7 +10,7 @@
 (defn assoc-in>> [v k g] (assoc-in g k v))
 
 (defn transpose [m] (apply mapv vector m))
-
+(defn nested-seq-to-vec [xs] (mapv (partial mapv identity) xs))
 
 (defn read-file [day file]
   (slurp (str "../resources/day-" day "/" file ".txt")))
