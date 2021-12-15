@@ -1,4 +1,5 @@
-(ns aoc-2021.util)
+(ns aoc-2021.util 
+  (:require [clojure.string :as string]))
 
 (defn not-empty? [xs] (not (empty? xs)))
 
@@ -13,6 +14,8 @@
 
 (defn read-file [day file]
   (slurp (str "../resources/day-" day "/" file ".txt")))
+
+(defn split-blank-lines [day file] (-> (read-file day file) (string/split #"\n\n")))
 
 (defn parse-lines [day file]
   (->> (read-file day file)
@@ -34,6 +37,9 @@
 (defn abs [x]
     (if (> x 0) x (* -1 x)))
     
+(defn min-max [xs] 
+  (reduce (fn [[_min _max] x] [(min _min x) (max _max x)]) [(first xs) (first xs)] xs))
+
 (defn permutations [colls]
   (if (= 1 (count colls))
     (list colls)
