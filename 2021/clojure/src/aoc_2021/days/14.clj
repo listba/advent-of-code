@@ -20,11 +20,11 @@
 
 (defn apply-rules [template rules] 
   (->> rules
-       (reduce (fn [changes [rule rule-changes]] 
-                 (let [delta (get template rule 0)] 
-                   (reduce-kv (fn [changes k v]
-                                (merge-with + changes {k (* v delta)}))
-                              changes rule-changes))) {})
+       (reduce (fn [changes [rule deltas]] 
+                 (let [v (get template rule 0)] 
+                   (reduce-kv (fn [changes k dv]
+                                (merge-with + changes {k (* v dv)}))
+                              changes deltas))) {})
        (merge-with + template)
        (into {} (filter #(-> % val (> 0))))))
 
