@@ -61,3 +61,14 @@
                  (some->> [ny nx]
                           (get-in chart)
                           ((fn [x] [x [ny nx]]))))))))
+
+(defn fetch-neighbors-wrap [diags? [y x] [my mx] chart]
+  (let [[-y +y] [(mod (dec y) my) (mod (inc y) my)]
+        [-x +x] [(mod (dec x) mx) (mod (inc x) mx)]
+        N  [-y x] NE [-y +x] E  [y +x] SE [+y +x]
+        S  [+y x] SW [+y -x] W  [y -x] NW [-y -x]]
+    (->> (if diags? [N NE E SE S SW W NW] [N E S W])
+         (keep (fn [[ny nx]]
+                 (some->> [ny nx]
+                          (get-in chart)
+                          ((fn [x] [x [ny nx]]))))))))

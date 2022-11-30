@@ -1,4 +1,4 @@
-(ns aoc-2021.days-23 
+(ns aoc-2021.days.23 
   (:require [aoc-2021.util :as util]))
 
 (defn p1 
