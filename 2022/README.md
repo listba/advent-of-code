@@ -25,7 +25,7 @@ Home to my advent of code solutions for 2021. All done in clojure
 
 ## License
 
-Copyright © 2021 Ben List
+Copyright © 2022 Ben List
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
