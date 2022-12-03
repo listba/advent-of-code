@@ -33,5 +33,4 @@
            (map (fn [[op me]] ((match-score-p2 op) me)))
            (apply +))))
 
-(comment (p1))
-(comment (p2))
+(str "p1: " (p1) " p2: " (p2))

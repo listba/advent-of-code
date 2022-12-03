@@ -27,16 +27,4 @@
                (take 3)
                (apply +))))
 
-(comment 
-  (->> "input" p1))
-
-(comment 
-  (->> "input" p2))
-
-(comment
-  (->> "input"
-       parse-food
-       (map (partial apply +))
-       (sort >=)
-       (take 3)
-       (apply +)))
+(str "p1: " (p1) " p2: " (p2))
