@@ -1,6 +1,5 @@
 (ns aoc-2022.days.04 
   (:require [aoc-2022.util :as util]
-            [clojure.string :as str]
             [clojure.set]))
 
 (defn parse [file]
