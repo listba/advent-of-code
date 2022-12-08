@@ -7,6 +7,11 @@
 (defn mp [xs] (mapv println xs) xs)
 (defn ps [s xs] (println s) xs)
 
+; Apply a function f to a 2d vector
+(defn map-in [f rows] (map (fn [row] (map (fn [cell] (f cell)) row)) rows))
+(defn map-indexed-in [f rows] (map-indexed (fn [y row] (map-indexed (fn [x cell] (f [y x] cell)) row)) rows))
+
+
 (defn update-in>> [f k g] (update-in g k f))
 (defn assoc-in>> [v k g] (assoc-in g k v))
 
