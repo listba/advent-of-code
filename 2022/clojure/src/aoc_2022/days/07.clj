@@ -1,12 +1,18 @@
 (ns aoc-2022.days.07 
   (:require [aoc-2022.util :as util]
-            [clojure.core.match :refer [match]]))
+            [clojure.core.match :refer [match]]
+            [clojure.string :refer [join]]))
 
 (defn update-sizes [dir-sizes size path]
   (if (empty? path) 
     dir-sizes
-    (recur (update dir-sizes (apply str path) (fnil #(+ size %) 0)) size (pop path))))
+    (recur (update dir-sizes (join "/" path) (fnil #(+ size %) 0)) size (pop path))))
 
+;; Instead of building up a tree since we are already straversing the filesystem
+;; while parsing/processing each line instead we can just build up an index of directory sizes
+;; by using the path as a key and the size as a value
+;; then we can just travel back up the file path each time we have a file and update the size of 
+;; each one in the path
 (defn process-directive [[curpath dir-sizes] directive] 
   (match directive 
     (["$" "cd" "/"]  :seq) [["/"] dir-sizes]
