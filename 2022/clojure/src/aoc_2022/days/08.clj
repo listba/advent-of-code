@@ -61,7 +61,8 @@
                (map tree-line-visibility)
                (flatten)
                (sort-by :score >)
-               first)))
+               first
+               (:score))))
 
 
 (str "p1: " (p1) " p2: " (p2))
