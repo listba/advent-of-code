@@ -90,3 +90,16 @@
 (deftest day-09-p2
   (testing "day 09 p2"
     (is (= 2531 (d09/p2)))))
+
+(deftest day-10-p1
+  (testing "day 10 p1"
+    (is (= 15360 (d10/p1)))))
+
+
+(deftest day-11-p1
+  (testing "day 11 p1"
+    (is (= 56120 (d11/p1)))))
+
+(deftest day-11-p1
+  (testing "day 11 p2"
+    (is (= 24389045529 (d11/p2)))))

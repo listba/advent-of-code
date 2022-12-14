@@ -1,6 +1,8 @@
 (ns aoc-2022.util 
   (:require [clojure.string :as string]))
 
+(defn zip [xs ys] (map vector xs ys))
+
 (defn not-empty? [xs] (not (empty? xs)))
 
 (defn p [x] (println x) x) ; little helper to debug in threading macros
