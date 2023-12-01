@@ -10,7 +10,7 @@ if (month < 12):
     year = year - 1
 board = 1501977
 cookie_string = None
-with open('.cookie-jar') as f:
+with open('.cookie') as f:
     cookie_string = f.read()
 
 def print_member(member):
