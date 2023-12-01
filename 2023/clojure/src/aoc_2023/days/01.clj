@@ -2,25 +2,36 @@
   (:require [aoc-2023.util :as util]
             [clojure.string :as str]))
 
+
+;; scans a line left to right to extract any numbers
+;; digits are extracted directly
+;; sequences that spell out a single digit in english (excluding zero) 
+;; should be extracted as their numerical representation
+;; order relative to the other numbers should be maintained
+;; eg 1eightwo7 should = 1827 (note eight and two share a t)
 (defn extract-numbers
   ([input]
    (first (reduce
-           (fn [[result pref] cur]
-             (let [pref (str pref cur)]
-               (cond
-                 (util/charNum? cur) [(str result cur) ref]
-                 (str/ends-with? pref "one") [(str result "1") pref]
-                 (str/ends-with? pref "two") [(str result "2") pref]
-                 (str/ends-with? pref "three") [(str result "3") pref]
-                 (str/ends-with? pref "four") [(str result "4") pref]
-                 (str/ends-with? pref "five") [(str result "5") pref]
-                 (str/ends-with? pref "six") [(str result "6") pref]
-                 (str/ends-with? pref "seven") [(str result "7") pref]
-                 (str/ends-with? pref "eight") [(str result "8") pref]
-                 (str/ends-with? pref "nine") [(str result "9") pref]
-                 :else [result pref]))) 
+           (fn [[result prefix] cur]
+             (let [prefix (str prefix cur)
+                   next (cond
+                          (util/charNum? cur)             cur
+                          (str/ends-with? prefix "one")   "1"
+                          (str/ends-with? prefix "two")   "2"
+                          (str/ends-with? prefix "three") "3"
+                          (str/ends-with? prefix "four")  "4"
+                          (str/ends-with? prefix "five")  "5"
+                          (str/ends-with? prefix "six")   "6"
+                          (str/ends-with? prefix "seven") "7"
+                          (str/ends-with? prefix "eight") "8"
+                          (str/ends-with? prefix "nine")  "9"
+                          :else                           "")]
+               [(str result next) prefix])) 
            ["" ""] input))))
 
+; calibration value is defined as a two digit number made from the first and last digit in a string of numbers
+; eg "1234" = 14
+;    "7"    = 77
 (defn get-calibration-value 
   ([line] (read-string (str (first line) (last line)))))
 
