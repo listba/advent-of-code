@@ -23,15 +23,39 @@
     ([size file]     :seq) [curpath (update-sizes dir-sizes (read-string size) curpath)] 
     :else                  [curpath dir-sizes]))
 
-(defn analyze-file-system [lines] (->> lines (reduce process-directive [[] {"/" 0}]) last))
+(defn process-directive- [[curpath file-system dir-sizes] directive] 
+  (match directive 
+    (["$" "cd" "/"]  :seq) [["/"] file-system dir-sizes]
+    (["$" "cd" ".."] :seq) [(pop curpath) file-system dir-sizes]
+    (["$" "cd" dir]  :seq) [(conj curpath dir) file-system dir-sizes] 
+    (["$" "ls"]      :seq) [curpath file-system dir-sizes] ; no-op
+    (["dir" dir]     :seq) [curpath (assoc-in file-system (conj curpath dir) {}) dir-sizes]
+    ([size file]     :seq) [curpath (assoc-in file-system (conj curpath file) (read-string size)) (update-sizes dir-sizes (read-string size) curpath)] 
+    :else                  [curpath file-system dir-sizes]))
+
+(defn analyze-file-system [lines] (->> lines (reduce process-directive- [[] {"/" {}} {"/" 0}])))
 
 (defn parse [file] (->> file (util/parse-lines "07") (map (partial re-seq #"[^\s]+"))))
 
+(defn compute-size [fs]
+  (let [[subdirs files] (group-by (fn [[k v]] (map? v)) fs)
+        local-size (->> files (map second) (apply +))
+        [result subdir-size] (reduce (fn [[result subdir-size] ]))]
+    
+    (map compute-size subdirs)))
+
+(comment (->> "sample" 
+              parse
+              analyze-file-system
+              second
+              (#(get % "/"))
+              (group-by (fn [[k v]] (map? v)))))
 (defn p1 
   ([] (p1 "input"))
   ([file] (->> file
                parse
                analyze-file-system
+               (last)
                (filter (fn [[_ size]] (<= size 100000)))
                (map last)
                (reduce +))))
@@ -51,6 +75,8 @@
   ([file] (->> file
                parse
                analyze-file-system
-               (find-space 70000000 30000000))))
+               (last)
+               (find-space 70000000 30000000)
+               second)))
 
 (str "p1: " (p1) " p2: " (p2))

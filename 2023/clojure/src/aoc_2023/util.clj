@@ -1,4 +1,4 @@
-(ns aoc-2022.util 
+(ns aoc-2023.util 
   (:require [clojure.string :as string]))
 
 (defn zip [xs ys] (map vector xs ys))

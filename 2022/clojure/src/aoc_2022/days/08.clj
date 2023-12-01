@@ -27,7 +27,7 @@
 
 (defn p1 
   ([] (p1 "input"))
-  ([file] (let [rows (util/parse-digits "08" file)
+  ([file] (let [rows (util/parse-grid-digits "08" file)
                 cols (util/transpose rows)]
             (count (clojure.set/union
                     (transduce (tree-outer-visibility true) union rows)
@@ -50,7 +50,7 @@
 (defn p2 
   ([] (p2 "input"))
   ([file] (->> file
-               (util/parse-digits "08")
+               (util/parse-grid-digits "08")
                (util/map-indexed-in (fn [coord v] {:height v :coord coord :score 1}))
                (map tree-line-visibility)
                (map reverse)

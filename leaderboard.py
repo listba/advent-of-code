@@ -3,11 +3,15 @@ from datetime import datetime
 import requests
 import sys
 
-
-year = 2022
+today = datetime.now()
+year = today.year
+month = today.month
+if (month < 12):
+    year = year - 1
 board = 1501977
-cookie_string = "YOUR COOKIE HERE"
-
+cookie_string = None
+with open('.cookie-jar') as f:
+    cookie_string = f.read()
 
 def print_member(member):
     if member["name"] is None:
@@ -66,5 +70,3 @@ members.sort(key=lambda m: m["local_score"], reverse=True)
 print("")
 for member in members:
     print_member(member)
-
-input()
