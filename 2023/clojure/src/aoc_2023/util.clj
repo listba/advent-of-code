@@ -1,9 +1,11 @@
 (ns aoc-2023.util 
   (:require [clojure.string :as string]))
 
-(defn zip [xs ys] (map vector xs ys))
+(defn zip [& colls]
+  (partition (count colls) (apply interleave colls)))
 
 (defn not-empty? [xs] (not (empty? xs)))
+(defn charNum? [char] (->> char str read-string number?))
 
 (defn p [x] (println x) x) ; little helper to debug in threading macros
 (defn mp [xs] (mapv println xs) xs)
