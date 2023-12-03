@@ -23,13 +23,13 @@
     (is (= 54925 (d01/p2)))))
 
 
-;; (deftest day-02-p1
-;;   (testing "day 02 p1"
-;;     (is (= 9241 (d02/p1)))))
+(deftest day-02-p1
+  (testing "day 02 p1"
+    (is (= 2449 (d02/p1)))))
 
-;; (deftest day-02-p2
-;;   (testing "day 02 p2"
-;;     (is (= 14610 (d02/p2)))))
+(deftest day-02-p2
+  (testing "day 02 p2"
+    (is (= 63981 (d02/p2)))))
 
 
 ;; (deftest day-03-p1
