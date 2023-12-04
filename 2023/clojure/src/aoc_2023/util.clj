@@ -4,7 +4,7 @@
 (defn zip [& colls]
   (partition (count colls) (apply interleave colls)))
 
-(defn not-empty? [xs] (not (empty? xs)))
+(defn not-empty? [xs] (seq xs))
 (defn charNum? [char] (->> char str read-string number?))
 (defn digit? [c] (and (>= 0 (compare \0 c)) 
                       (>= 0 (compare c \9))))
@@ -78,7 +78,11 @@
       (cons head tail))))
 
 
-(defn fetch-neighbors [diags? [y x] chart]
+(defn fetch-neighbors 
+  "Returns value and coordinate pairs `[nv [ny nx]]` of any all neighboring cells
+   given a 2D vector (`chart`) for a given cells coordinates `[y x]`
+   if `diags?` is false only cardinal neighbors are returned `N,E,S,W`"
+  [diags? [y x] chart] 
   (let [N  [(dec y) x]
         NE [(dec y) (inc x)]
         E  [y (inc x)]
@@ -92,4 +96,8 @@
                  (some->> [ny nx]
                           (get-in chart)
                           ((fn [x] [x [ny nx]]))))))))
-(defn fetch-neighbors-values [diags? coords chart] (map first (fetch-neighbors diags? coords chart)))
+
+(defn fetch-neighbors-values 
+  "calls `fetch-neighbors` but only returns the cell values of the neighbors"
+  [diags? coords chart] 
+  (map first (fetch-neighbors diags? coords chart)))

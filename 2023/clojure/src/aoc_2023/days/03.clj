@@ -3,6 +3,7 @@
 
 
 (defn find-numbers
+  "Finds all continuous sequences of digits in each line and mark the valus and its coordinates"
   ([grid]
    (let [length (->> grid first count (dec))
          end? (fn [x] (= length x))
@@ -22,13 +23,16 @@
                             [[] new-num] row)))
                   )[] grid))))
 
-(defn part-number? [grid {coords :coords}]
+
+(defn part-number? 
+  "A part number is defined as a sequence of digits that is adjacent to 1 or more symbols
+   (ie not a digit & not a .)"
+  [grid {coords :coords}]
   (->> coords 
        (map #(util/fetch-neighbors-values true % grid)) 
        (apply concat) 
        (filter #(and (not= % \.) (not (util/digit? %)))) 
-       (empty?) 
-       (not)))
+       (util/not-empty?)))
 (defn p1 
   ([] (p1 "input"))
   ([file] (let [grid (util/parse-grid "03" file)]
