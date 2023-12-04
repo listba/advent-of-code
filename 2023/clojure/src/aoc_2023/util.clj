@@ -6,6 +6,9 @@
 
 (defn not-empty? [xs] (not (empty? xs)))
 (defn charNum? [char] (->> char str read-string number?))
+(defn digit? [c] (and (>= 0 (compare \0 c)) 
+                      (>= 0 (compare c \9))))
+
 
 (defn p [x] (println x) x) ; little helper to debug in threading macros
 (defn mp [xs] (mapv println xs) xs)
@@ -74,6 +77,7 @@
           tail (permutations (disj (set colls) head))]
       (cons head tail))))
 
+
 (defn fetch-neighbors [diags? [y x] chart]
   (let [N  [(dec y) x]
         NE [(dec y) (inc x)]
@@ -88,3 +92,4 @@
                  (some->> [ny nx]
                           (get-in chart)
                           ((fn [x] [x [ny nx]]))))))))
+(defn fetch-neighbors-values [diags? coords chart] (map first (fetch-neighbors diags? coords chart)))
