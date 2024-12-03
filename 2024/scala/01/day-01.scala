@@ -14,7 +14,7 @@ import fs2.{Chunk, Stream}
 
 object Day01 extends IOApp.Simple {
   val run: IO[Unit] = for {
-    (listA, listB) <- parse[IO](Path("../../input/day-01/input-1.txt"))
+    (listA, listB) <- parse[IO](Path("../../input/day-01/input.txt"))
     part1Result    =  part1(listA, listB)
     _              <- IO.println(s"Part 1: $part1Result")
     part2Result    =  part2(listA, listB)

@@ -15,7 +15,7 @@ import fs2.{Chunk, Stream}
 object Day02 extends IOApp.Simple {
   val run: IO[Unit] = for {
     _       <- IO.println("Day 02")
-    results <- parse02[IO](Path("../../input/day-02/input-1.txt"))
+    results <- parse02[IO](Path("../../input/day-02/input.txt"))
     valid   =  results.filter(validate)
     _       <- IO.println(s"Valid Reports: ${valid.length}")
     validD  =  results.filter(validateWithDrop)
