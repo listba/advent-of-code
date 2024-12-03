@@ -8,7 +8,7 @@
 (defn charNum? [char] (->> char str read-string number?))
 (defn digit? [c] (and (>= 0 (compare \0 c)) 
                       (>= 0 (compare c \9))))
-
+(defn split>> [re s] (string/split s re))
 
 (defn p [x] (println x) x) ; little helper to debug in threading macros
 (defn mp [xs] (mapv println xs) xs)
