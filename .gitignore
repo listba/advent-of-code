@@ -51,7 +51,7 @@ Temporary Items
 **metals.sbt
 project/project
 **.bloop
-.scala-build/*
+**.scala-build
 ### VisualStudioCode ###
 **/.vscode/*
 !.vscode/tasks.json
