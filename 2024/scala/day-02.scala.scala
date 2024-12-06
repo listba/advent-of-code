@@ -10,7 +10,10 @@ object Day02 {
     type Parsed = List[List[Int]]
 
     private def validate(report: List[Int]): Boolean = 
-      val diff = report.sliding(2).map{ case a::b::Nil => (a-b) }.toList
+      val diff = report.sliding(2).map{ 
+        case a::b::Nil => (a-b) 
+        case _ => ??? // meh
+      }.toList
       diff.forall(d => d >= 1 && d <=3) ||
       diff.forall(d => d <= -1 && d >= -3)
 
