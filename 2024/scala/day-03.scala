@@ -41,7 +41,7 @@ object Parser {
 }
 
 object Day03 {
-  def apply[F[_]: Concurrent](): Day[F,Int] = new Day[F,Int] {
+  def apply[F[_]: Concurrent]: Day[F,Int] = new Day[F,Int] {
     val day = 3
     type Parsed = List[Cmd]
 

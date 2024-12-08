@@ -6,7 +6,7 @@ import fs2.Stream
 
 
 object Day01 {
-  def apply[F[_]: Concurrent](): Day[F,Int] = new Day[F,Int] {
+  def apply[F[_]: Concurrent]: Day[F,Int] = new Day[F,Int] {
     val day = 1
     type Parsed = (List[Int], List[Int])
 

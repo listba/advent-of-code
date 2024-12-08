@@ -46,10 +46,10 @@ val file: Opts[String] =
   Opts.option[String]( "file", "The name of the input file to use.", short = "f" ).withDefault("input.txt")
 
 val days: Seq[Day[IO, ?]] = 
-  Day01[IO]() :: 
-  Day02[IO]() :: 
-  Day03[IO]() :: 
-  Day04[IO]() :: 
+  Day01[IO] :: 
+  Day02[IO] :: 
+  Day03[IO] :: 
+  Day04[IO] :: 
   Nil
 
 def findDay[F[_]: ApplicativeThrow](dayNum: Int) = days.find(_.day == dayNum) match

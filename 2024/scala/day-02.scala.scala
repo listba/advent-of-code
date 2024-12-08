@@ -5,7 +5,7 @@ import cats.effect.Concurrent
 import fs2.Stream
 
 object Day02 {
-  def apply[F[_]: Concurrent](): Day[F,Int] = new Day[F,Int] {
+  def apply[F[_]: Concurrent]: Day[F,Int] = new Day[F,Int] {
     val day = 2
     type Parsed = List[List[Int]]
 
